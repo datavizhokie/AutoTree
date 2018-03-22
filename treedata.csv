@@ -1,0 +1,42 @@
+name,parent
+Phase 1,null
+Refactor analytics pipeline,Phase 1
+Architecture,Phase 1
+AutoDecision,Phase 1
+MVT,Phase 1
+Data Shaping Zone,Architecture
+Beam Shaping Layer,Data Shaping Zone
+GraphQL Adapter,Data Shaping Zone
+A/B Conversion Layer,Data Shaping Zone
+Variant Conversion Layer,Data Shaping Zone
+A/B Shaping Layer,Data Shaping Zone
+Tensor Persistence Layer,Architecture
+SDK: Implement layered aproach,Architecture
+Training/Learning Zone:  Integrate MAB,AutoDecision
+Push A/B data through revised architecture,AutoDecision
+Code variant Auto-Spawning framework ,AutoDecision
+Define Execution Plan,AutoDecision
+Hierarchy success of same level ,Define Execution Plan
+Input Hurdle Rates               ,Define Execution Plan
+Switch on AutoD,Define Execution Plan
+Calculate Launch Eligibility,AutoDecision
+Make decision tree,Calculate Launch Eligibility
+Automate decision tree,Calculate Launch Eligibility
+Execute Launch,AutoDecision
+Manual override the launch,Execute Launch
+"Change Alloc. of Experiment, config send to SDK",Execute Launch
+Visualize launch eligibility,AutoDecision
+Design Decision Tree UI,Visualize launch eligibility
+New Notifications,AutoDecision
+Create Variables,MVT
+UI to Create Variables,Create Variables
+Manually Specify no-fly zones,MVT
+Visualize variants,Manually Specify no-fly zones
+Create Variants (auto-spawn),MVT
+Input data type into variable,MVT
+Build regression,MVT
+Spike:  Define cost function supporting diff variable types,Build regression
+Visualize regression to experimenter,Build regression
+Correlation heat maps,MVT
+Distribution Tests?,MVT
+Assemble JSON payload,MVT
