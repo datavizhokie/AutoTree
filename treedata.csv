@@ -22,21 +22,20 @@ Switch on AutoD,Define Execution Plan
 Calculate Launch Eligibility,AutoDecision
 Make decision tree,Calculate Launch Eligibility
 Automate decision tree,Calculate Launch Eligibility
+Visualize launch eligibility,AutoDecision
+Design Decision Tree UI,Visualize launch eligibility
 Execute Launch,AutoDecision
 Manual override the launch,Execute Launch
 "Change Alloc. of Experiment, config send to SDK",Execute Launch
-Visualize launch eligibility,AutoDecision
-Design Decision Tree UI,Visualize launch eligibility
 New Notifications,AutoDecision
 Create Variables,MVT
+Manually Specify no-fly zones,Create Variables
 UI to Create Variables,Create Variables
-Manually Specify no-fly zones,MVT
-Visualize variants,Manually Specify no-fly zones
-Create Variants (auto-spawn),MVT
+Create Variants (auto-spawn),Create Variables
 Input data type into variable,MVT
 Build regression,MVT
 Spike:  Define cost function supporting diff variable types,Build regression
-Visualize regression to experimenter,Build regression
-Correlation heat maps,MVT
-Distribution Tests?,MVT
+Visualize regression to experimenter,MVT
+Correlation heat maps,Visualize regression to experimenter
+Distribution Tests,MVT
 Assemble JSON payload,MVT
