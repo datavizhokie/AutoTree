@@ -13,7 +13,7 @@
 	  stroke-width: 3px;
 	}
 
-	.node text { font: 9px sans-serif; }
+	.node text { font: 11px sans-serif; }
 
 	.link {
 	  fill: none;
@@ -89,7 +89,7 @@ function update(source) {
 	  links = tree.links(nodes);
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 250; });
+  nodes.forEach(function(d) { d.y = d.depth * 270; });
 
   // Declare the nodesâ€¦
   var node = svg.selectAll("g.node")
