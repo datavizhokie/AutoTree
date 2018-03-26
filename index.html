@@ -11,18 +11,18 @@
         cursor: pointer;
     }
 
-	.node circle {
-	  fill: #fff;
-	  stroke: steelblue;
-	  stroke-width: 3px;
-	}
+	//.node circle {
+	//  fill: #fff;
+	//  stroke: steelblue;
+	//  stroke-width: 3px;
+	//}
 
 	.node text { font: 10px sans-serif; }
 
 	.link {
 	  fill: none;
 	  stroke: #ccc;
-	  stroke-width: 2px;
+	  stroke-width: 3px;
 	}
 	
     </style>
@@ -120,7 +120,11 @@ function update(source) {
 
 	nodeEnter.append("circle")
             .attr("r", 1e-6)
-            .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+            .style("fill", function(d) { 
+				if(d.type == "phase") return "steelblue";
+				if(d.type == "node") return "green";
+				if(d.type == "task") return "grey";
+			});
 
     nodeEnter.append("text")
             .attr("x", function(d) { return d.children || d._children ? 20 : 13; })
@@ -135,8 +139,12 @@ function update(source) {
             .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
 
     nodeUpdate.select("circle")
-            .attr("r", 4)
-            .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+            .attr("r", 6)
+            .style("fill", function(d) {
+				if(d.type == "phase") return "steelblue";
+				if(d.type == "node") return "green";
+				if(d.type == "task") return "grey"; 
+			});
 
     nodeUpdate.select("text")
             .style("fill-opacity", 1);
