@@ -1,50 +1,50 @@
-name,parent,type
-Phase 1,null,phase
-Refactor analytics pipeline,Phase 1,node
-Architecture,Phase 1,node
-AutoDecision,Phase 1,node
-MVT,Phase 1,node
-Data Shaping Zone,Architecture,task
-Beam Shaping Layer,Data Shaping Zone,task
-GraphQL Adapter,Data Shaping Zone,task
-A/B Conversion Layer,Data Shaping Zone,task
-Variant Conversion Layer,Data Shaping Zone,task
-A/B Shaping Layer,Data Shaping Zone,task
-Tensor Persistence Layer,Architecture,task
-SDK: Implement layered aproach,Architecture,task
-Training/Learning Zone:  Integrate MAB,AutoDecision,task
-Push A/B data through rev. architecture,AutoDecision,task
-Code variant Auto-Spawn,AutoDecision,task
-Define Execution Plan,AutoDecision,task
-Hierarchy success of same level ,Define Execution Plan,task
-Determine hierarchy of success metrics,Hierarchy success of same level ,task
-Implement hierarchy (developer),Hierarchy success of same level ,task
-UI - Input Hurdle Rates (collect),Define Execution Plan,task
-UI - Input Hurdle Rates (pass to backend)      ,Define Execution Plan,task
-Switch on AutoD,Define Execution Plan,task
-Calculate Launch Eligibility,AutoDecision,task
-Make decision tree,Calculate Launch Eligibility,task
-Automate decision tree,Calculate Launch Eligibility,task
-Visualize launch eligibility,AutoDecision,task
-Design Decision Tree UI,Visualize launch eligibility,task
-Execute Launch,AutoDecision,task
-Manual override the launch,Execute Launch,task
-"Change Alloc. of Experiment, config send to SDK",Execute Launch,task
-New Notifications,AutoDecision,task
-Enable email notifications,New Notifications,task
-Enable within Distillery pop-ups,New Notifications,task
-Generate Variants,MVT,task
-"UI (variant tab) Create vars, var-values, and no fly zones",Generate Variants,task
-"UI (tech tab) Creating feature flags, feature flag values",Generate Variants,task
-"Storage of MVT configs (variable, variable-values, noflys)",Generate Variants,task
-Create Variants (auto-spawn),Generate Variants,task
-Input data type into variable,MVT,task
-Build regression,MVT,task
-Spike:  Define cost function supporting diff variable types,Build regression,task
-Implement regression from cost fcn,Build regression,task
-Visualize regression to experimenter,MVT,task
-Correlation heat maps,Visualize regression to experimenter,task
-Storing heat map data,Visualize regression to experimenter,task
-Distribution Tests,MVT,task
-Store and push payload to TDCS/SDK,MVT,task
-"UI (tech tab) Assemble payload per variant, present to user",Store and push payload to TDCS/SDK,task
+name,parent,background,type
+Phase 1,null,Phase 1 of 4,phase
+Refactor analytics pipeline,Phase 1,Set up initial structure for a Shaping Zone and a Learning Zone,node
+Architecture,Phase 1,All of the architecture changes!,node
+AutoDecision,Phase 1,All of the system changes involved to make Auto-Decisioning actionable,node
+MVT,Phase 1,All of the system changes involved to make Multivariate Testing actionable,node
+Data Shaping Zone,Architecture,Implement common Data Adapter pattern for pulling data from venona and other sources and emitting tensors. Implement common pattern for persisiting tensors to s3 (persistance layer).,task
+Beam Shaping Layer,Data Shaping Zone,Implement Universal Class for Shaping Layers via Beam,task
+GraphQL Adapter,Data Shaping Zone,Create GraphQL Adapter - shapeshifter repo,task
+A/B Conversion Layer,Data Shaping Zone,Create A/B Conversion and Shaping Layer,task
+Variant Conversion Layer,Data Shaping Zone,Create Variant Conversion Layer: accept JSON and create tensor,task
+Tensor Persistence Layer,Architecture,Need to persist tensor outputs of the shaping layer,task
+SDK: Implement layered approach,Architecture,SDK - Implement layered aproach to SDK decision engines with gracefull fallback.  Implement model syncronization between model store and SDK.,task
+Push A/B data through rev. architecture,AutoDecision,Full System:  Push A/B experiment results data through revised system architecture for validation,task
+Code variant Auto-Spawn,AutoDecision,Training/Learning Zone:  Code variant Auto-Spawning framework ,task
+Define Execution Plan,AutoDecision,Define Execution Plan,task
+Hierarchy success of same level ,Define Execution Plan,Hierarchy success of same level,task
+Determine hierarchy of success metrics,Hierarchy success of same level ,Determine the hierarchy of success metrics of the same level,task
+Implement hierarchy (developer),Hierarchy success of same level ,Implement hierarchy of success metrics (developer),task
+UI - Input Hurdle Rates (collect),Define Execution Plan,UI - Input Hurdle Rates (collect hurdle rates from user),task
+UI - Input Hurdle Rates (pass to backend)      ,Define Execution Plan,UI - Input Hurdle Rates (pass hurdle rates into backend)      ,task
+Switch on AutoD,Define Execution Plan,"UI - Switch on AutoDecisioning - toggle for MVP, dropdown for future state",task
+Calculate Launch Eligibility,AutoDecision,Calculate Launch Eligibility,task
+Make decision tree,Calculate Launch Eligibility,Learning Zone - Make decision tree: Learning zone can store performance data for UI,task
+Automate decision tree,Calculate Launch Eligibility,Learning Zone - Automate decision tree,task
+Visualize launch eligibility,AutoDecision,Visualize launch eligibility,task
+Design Decision Tree UI,Visualize launch eligibility,Design Decision Tree UI,task
+Execute Launch,AutoDecision,Execute Converged AutoDecision Launch,task
+Manual override the launch,Execute Launch,Distillery - Manual override the launch,task
+"Change Alloc. of Experiment, config send to SDK",Execute Launch,Distillery changes alloc. in TCDS/SDK of experiment,task
+New Notifications,AutoDecision,"New Notifications - owners of the experiment to be notified with different stages (how do we notify, etc)",task
+Enable email notifications,New Notifications,Enable email notifications,task
+Enable within Distillery pop-ups,New Notifications,Enable within Distillery pop-ups when first logging,task
+Generate Variants,MVT,Generate Variants,task
+"UI (variant tab) Create vars, var-values, and no fly zones",Generate Variants,"UI (variant tab) for Creating possible variable, variable-values, and no fly zones",task
+"UI (tech tab) Creating feature flags, feature flag values",Generate Variants,UI (tech tab) for creating feature flags and feature flag values for all variable-values,task
+"Storage of MVT configs (variable, variable-values, noflys)",Generate Variants,"Storage of MVT configs (variable, variable-values, noflys)",task
+Create Variants (auto-spawn),Generate Variants,Create array/dict of variants (auto-spawn),task
+Input data type into variable,MVT,Input data type into variable,task
+Build regression,MVT,Build regression to estimate variable/variant performance,task
+Spike:  Define cost function supporting diff variable types,Build regression,Spike:  Define cost function that supports categorical and ordinal variables,task
+Implement regression from cost fcn,Build regression,Implement regression from cost function findings,task
+Visualize regression to experimenter,MVT,Visualize regression to experimenter,task
+Correlation heat maps,Visualize regression to experimenter,UI (results tab) Implement cost-function heat maps to be visualized by user,task
+Storing heat map data,Visualize regression to experimenter,Solution for calculating then storing heat map data (values variable to cost function),task
+Distribution Tests,MVT,QA -  Distribution Tests on allocation across variants,task
+Store and push payload to TDCS/SDK,MVT,Store and push payload to TDCS/SDK (get feedback from Joe),task
+"UI (tech tab) Assemble payload per variant, present to user",Store and push payload to TDCS/SDK,UI (tech tab) Assemble JSON payload per variant and present to user to edit/QA,task
+,,,task
+,,,task
