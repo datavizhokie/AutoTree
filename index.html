@@ -6,6 +6,7 @@
     <title>Phase 1 Story Tree</title>
 
     <style>
+		
 	
 	.node {
         cursor: pointer;
@@ -75,7 +76,7 @@ var tree = d3.layout.tree()
 
 var diagonal = d3.svg.diagonal()
 	.projection(function(d) { return [d.y, d.x]; });
-
+	
 var svg = d3.select("body").append("svg")
 	.attr("width", width + margin.right + margin.left)
 	.attr("height", height + margin.top + margin.bottom)
@@ -90,8 +91,11 @@ svg.append("text")
         .style("text-decoration", "underline")  
         .text("Phase 1 Arch/MVT/MAB Story Tree");
 
+
+		
 // load the external data
 d3.csv("treedata.csv", function(error, data) {
+
 
 // *********** Convert flat data into a nice tree ***************
 // create a name: node map
@@ -103,6 +107,7 @@ var dataMap = data.reduce(function(map, node) {
 // create the tree array
 var treeData = [];
 data.forEach(function(node) {
+	
 	// add to parent
 	var parent = dataMap[node.parent];
 	if (parent) {
@@ -119,6 +124,8 @@ data.forEach(function(node) {
   root = treeData[0];
   update(root);
 });
+
+	
 
 function update(source) {
 
@@ -145,7 +152,7 @@ function update(source) {
              .classed('info', true)
              .attr('x', 20)
              .attr('y', 10)
-             .text(function(d) {return d.background});
+             .text(function(d) {return d.component});
       })
       .on("mouseout", function() {
           // Remove the info text on mouse out.
@@ -156,9 +163,11 @@ function update(source) {
 	nodeEnter.append("circle")
             .attr("r", 1e-6)
             .style("fill", function(d) { 
-				if(d.type == "phase") return "steelblue";
-				if(d.type == "node") return "green";
-				if(d.type == "task") return "grey";
+				if(d.component == "data analysis") return "steelblue";
+				if(d.component == "decision engine") return "green";
+				if(d.component == "traffic splitting") return "orange";
+				if(d.component == "management console") return "red";
+				if(d.component == "") return "grey";
 			});
 
     nodeEnter.append("text")
@@ -176,9 +185,11 @@ function update(source) {
     nodeUpdate.select("circle")
             .attr("r", 6)
             .style("fill", function(d) {
-				if(d.type == "phase") return "steelblue";
-				if(d.type == "node") return "green";
-				if(d.type == "task") return "grey"; 
+				if(d.component == "data analysis") return "steelblue";
+				if(d.component == "decision engine") return "green";
+				if(d.component == "traffic splitting") return "orange";
+				if(d.component == "management console") return "red";
+				if(d.component == "") return "grey";
 			});
 
     nodeUpdate.select("text")
